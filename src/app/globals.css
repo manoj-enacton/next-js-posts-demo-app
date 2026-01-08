@@ -35,8 +35,12 @@ textarea:focus {
   @apply outline-none ring-2 ring-blue-500;
 }
 
-button {
+/* button {
   @apply bg-blue-600 text-white rounded-md py-2 font-medium;
+} */
+
+.btn-primary {
+  @apply bg-blue-600 text-white;
 }
 
 button:hover {
