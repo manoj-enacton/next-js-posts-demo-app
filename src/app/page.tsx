@@ -1,6 +1,7 @@
 import { connectDB } from "@/lib/db";
 import Post from "@/models/Post";
 import Link from "next/link";
+import Image from "next/image";
 
 async function getPosts() {
   await connectDB();
@@ -38,6 +39,16 @@ export default async function HomePage() {
                   </span>
                 ))}
               </div>
+            )}
+            {post.image?.url && (
+              <Image
+                src={post.image.url}
+                alt={post.title}
+                width={800}
+                height={400}
+                className="w-full h-48 object-cover rounded"
+                priority={false}
+              />
             )}
 
             {/* 🔜 Edit link (used in Step 3) */}

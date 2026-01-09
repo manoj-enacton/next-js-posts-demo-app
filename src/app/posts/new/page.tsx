@@ -8,7 +8,10 @@ export default function CreatePostPage() {
           Create Post
         </h1>
 
-        <form action={createPost} className="flex flex-col gap-4">
+        <form
+          action={createPost}
+          className="flex flex-col gap-4"
+        >
           <input
             name="title"
             placeholder="Title"
@@ -27,6 +30,12 @@ export default function CreatePostPage() {
             name="tags"
             placeholder="Tags (comma separated)"
             className="border rounded-md px-3 py-2 bg-white text-black placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500"
+          />
+          <input
+            type="file"
+            name="image"
+            accept="image/*"
+            className="text-sm"
           />
 
           <button

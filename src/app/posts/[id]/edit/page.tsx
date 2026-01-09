@@ -50,6 +50,8 @@ export default async function EditPostPage({
             className="border rounded px-3 py-2 bg-white text-black"
           />
 
+          <input type="file" name="image" accept="image/*" className="text-sm" />
+
           <button className="bg-blue-600 text-white py-2 rounded">
             Update Post
           </button>
