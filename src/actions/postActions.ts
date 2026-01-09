@@ -3,6 +3,7 @@
 import { connectDB } from "@/lib/db";
 import Post from "@/models/Post";
 import { redirect } from "next/navigation";
+import { revalidatePath } from "next/cache";
 
 export async function createPost(formData: FormData) {
   const title = formData.get("title") as string;
@@ -19,6 +20,7 @@ export async function createPost(formData: FormData) {
     tags,
   });
 
+  revalidatePath("/"); // ✅ CRITICAL
   redirect("/");
 }
 
@@ -38,6 +40,7 @@ export async function updatePost(formData: FormData) {
     tags,
   });
 
+  revalidatePath("/"); // ✅ CRITICAL
   redirect("/");
 }
 
@@ -47,5 +50,6 @@ export async function deletePost(formData: FormData) {
   await connectDB();
   await Post.findByIdAndDelete(id);
 
+  revalidatePath("/"); // ✅ CRITICAL
   redirect("/");
 }
